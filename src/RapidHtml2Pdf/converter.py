@@ -73,7 +73,7 @@ async def html_to_pdf_async(
     :param options: PDFOptions instance for page settings.
     :param timeout: Max seconds to wait for loading assets.
     """
-    from h2p.renderer import Renderer
+    from RapidHtml2Pdf.renderer import Renderer
 
     opts = options or PDFOptions()
     renderer = Renderer(options=opts, timeout=timeout)
