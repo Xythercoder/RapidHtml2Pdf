@@ -1,0 +1,6 @@
+/.RapidHtml2Pdf_cache
+/.pytest_cache
+/.tox
+/.venv
+/build
+/tox.ini

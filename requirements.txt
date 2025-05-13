@@ -1,0 +1,8 @@
+beautifulsoup4
+aiohttp
+aiofiles
+typer
+playwright
+libsass
+weasyprint
+reportlab
