@@ -85,7 +85,7 @@ def html_to_pdf(
     output_path: str,
     options: Optional[PDFOptions] = None,
     timeout: int = 30
-) -> None:
+) -> bool:
     """
     Synchronous wrapper around html_to_pdf_async.
     """
