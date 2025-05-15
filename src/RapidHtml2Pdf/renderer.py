@@ -28,27 +28,34 @@ class Renderer:
                 await page.wait_for_load_state("networkidle", timeout=self.timeout)
 
                 if self.options.fit_to_one_page:
-                    # Measure content height (in pixels)
-                    content_height = await page.evaluate("document.body.scrollHeight")
+                    # A4 in inches and pixels (96 DPI)
+                    a4_width_px = 794
+                    a4_height_px = 1123
 
-                    # A4 height at 96 DPI = ~1122px
-                    a4_height_px = 1122
-                    a4_width_in = 8.27
+                    # Force viewport to A4 size
+                    await page.set_viewport_size({"width": a4_width_px, "height": a4_height_px})
 
-                    if content_height <= a4_height_px:
-                        # Dynamically fit to content height to avoid blank pages
-                        await page.pdf(
-                            path=output_path,
-                            width=f"{a4_width_in}in",
-                            height=f"{content_height}px",
-                            print_background=True,
-                            margin={"top": "0in", "bottom": "0in", "left": "0in", "right": "0in"},
-                        )
-                    else:
-                        # Generate multi-page PDF normally
-                        pdf_opts = self._build_pdf_options()
-                        await page.pdf(path=output_path, **pdf_opts)
+                    # Apply CSS to scale content to fit A4
+                    await page.add_style_tag(content="""
+                        html, body {
+                            width: 794px;
+                            height: 1123px;
+                            margin: 0;
+                            padding: 0;
+                            overflow: hidden;
+                            transform: scale(1);
+                            transform-origin: top left;
+                        }
+                    """)
+
+                    await page.pdf(
+                        path=output_path,
+                        format="A4",
+                        print_background=True,
+                        margin={"top": "0in", "bottom": "0in", "left": "0in", "right": "0in"},
+                    )
                 else:
+                    # Generate multi-page PDF normally
                     pdf_opts = self._build_pdf_options()
                     await page.pdf(path=output_path, **pdf_opts)
 

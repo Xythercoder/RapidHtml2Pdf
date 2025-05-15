@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "RapidHtml2Pdf"
-version = "1.0.0"
+version = "0.1.5"
 description = "Convert HTML (with CSS, SCSS, icons, and images) to PDF with async/threaded support"
 readme = "README.md"
 requires-python = ">=3.8"

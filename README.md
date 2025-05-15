@@ -13,7 +13,7 @@ Convert HTML (with CSS, SCSS, icons, and images) to PDF with async and threaded 
 ## Installation
 
 ```bash
-pip install h2p
+pip install RapidHtml2Pdf
 # Then install Playwright browsers:
 python -m playwright install
 ```
@@ -23,7 +23,7 @@ python -m playwright install
 ### Synchronous
 
 ```python
-from RapidHtml2Pdf import html_to_pdf, PDFOptions
+from RapidHtml2Pdf.converter import html_to_pdf, PDFOptions
 
 html = '<html><body><h1>Hello PDF</h1></body></html>'
 options = PDFOptions(fit_to_one_page=True)
@@ -34,7 +34,7 @@ html_to_pdf(html, 'output.pdf', options)
 
 ```python
 import asyncio
-from RapidHtml2Pdf import html_to_pdf_async, PDFOptions
+from RapidHtml2Pdf.converter import html_to_pdf_async, PDFOptions
 
 async def main():
     html = '<html><body><h1>Async PDF</h1></body></html>'

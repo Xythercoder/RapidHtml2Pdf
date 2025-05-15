@@ -21,7 +21,7 @@ html: str,
 output_path: str,
 options: Optional[PDFOptions] = None,
 timeout: int = 30
-) -> None:
+) -> bool:
     """
     Render HTML (with CSS/SCSS, assets, fonts) to PDF asynchronously.
 
@@ -30,50 +30,7 @@ timeout: int = 30
     :param options: PDFOptions instance for page settings.
     :param timeout: Max seconds to wait for loading assets.
     """
-    from h2p.renderer import Renderer
-
-    opts = options or PDFOptions()
-    renderer = Renderer(options=opts, timeout=timeout)
-    await renderer.render(html, output_path)
-
-
-def html_to_pdf(
-    html: str,
-    output_path: str,
-    options: Optional[PDFOptions] = None,
-    timeout: int = 30
-) -> None:
-    """
-    Synchronous wrapper around html_to_pdf_async.
-    """
-    try:
-        loop = asyncio.get_event_loop()
-    except RuntimeError:
-        loop = asyncio.new_event_loop()
-        asyncio.set_event_loop(loop)
-    return loop.run_until_complete(html_to_pdf_async(html, output_path, options, timeout))
-
-# Public API
-__all__ = [
-    "PDFOptions",
-    "html_to_pdf",
-    "html_to_pdf_async",
-]
-async def html_to_pdf_async(
-    html: str,
-    output_path: str,
-    options: Optional[PDFOptions] = None,
-    timeout: int = 30
-) -> None:
-    """
-    Render HTML (with CSS/SCSS, assets, fonts) to PDF asynchronously.
-
-    :param html: The HTML content or file path.
-    :param output_path: Where to save the PDF.
-    :param options: PDFOptions instance for page settings.
-    :param timeout: Max seconds to wait for loading assets.
-    """
-    from RapidHtml2Pdf.renderer import Renderer
+    from .renderer import Renderer
 
     opts = options or PDFOptions()
     renderer = Renderer(options=opts, timeout=timeout)
@@ -95,6 +52,27 @@ def html_to_pdf(
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
     return loop.run_until_complete(html_to_pdf_async(html, output_path, options, timeout))
+
+async def html_to_pdf_async(
+    html: str,
+    output_path: str,
+    options: Optional[PDFOptions] = None,
+    timeout: int = 30
+) -> bool:
+    """
+    Render HTML (with CSS/SCSS, assets, fonts) to PDF asynchronously.
+
+    :param html: The HTML content or file path.
+    :param output_path: Where to save the PDF.
+    :param options: PDFOptions instance for page settings.
+    :param timeout: Max seconds to wait for loading assets.
+    """
+    from .renderer import Renderer
+
+    opts = options or PDFOptions()
+    renderer = Renderer(options=opts, timeout=timeout)
+    await renderer.render(html, output_path)
+
 
 # Public API
 __all__ = [

@@ -1,6 +1,6 @@
 import pytest
 import os
-from RapidHtml2Pdf.converter import html_to_pdf, PDFOptions
+from src.RapidHtml2Pdf.converter import html_to_pdf, PDFOptions
 
 # Make sure the output directory exists
 OUTPUT_DIR = os.path.join(os.path.dirname(__file__), "..", "output")

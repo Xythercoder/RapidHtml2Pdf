@@ -1,6 +1,6 @@
 Metadata-Version: 2.4
 Name: RapidHtml2Pdf
-Version: 1.0.0
+Version: 0.1.5
 Summary: Convert HTML (with CSS, SCSS, icons, and images) to PDF with async/threaded support
 Home-page: https://github.com/Xyhercode/RapidHtml2Pdf
 Author: Rakesh Sharma

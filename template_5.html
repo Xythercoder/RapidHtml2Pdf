@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Professional Resume</title>
+    <style>
+        /* A4 size setup with modern colors */
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #2d3436;
+            width: 210mm;
+            height: 297mm;
+            margin: 0 auto;
+            padding: 15mm;
+            box-sizing: border-box;
+            background: white;
+        }
+        
+        /* Modern header with accent color */
+        .header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8mm;
+            padding-bottom: 5mm;
+            border-bottom: 3px solid #0984e3;
+        }
+        
+        .header-content {
+            flex: 1;
+        }
+        
+        h1 {
+            color: #2d3436;
+            margin: 0;
+            font-size: 28pt;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+        
+        .title {
+            color: #0984e3;
+            margin: 2mm 0;
+            font-size: 14pt;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8mm;
+            margin-top: 3mm;
+            font-size: 9pt;
+        }
+        
+        .contact-info span {
+            display: flex;
+            align-items: center;
+            gap: 2mm;
+        }
+        
+        /* Modern section styling */
+        .section {
+            margin-bottom: 6mm;
+        }
+        
+        h2 {
+            color: #0984e3;
+            margin-bottom: 3mm;
+            font-size: 14pt;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            position: relative;
+            padding-bottom: 2mm;
+        }
+        
+        h2:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 30mm;
+            height: 2px;
+            background: #dfe6e9;
+        }
+        
+        /* Experience cards */
+        .job {
+            margin-bottom: 5mm;
+            page-break-inside: avoid;
+            position: relative;
+            padding-left: 5mm;
+        }
+        
+        .job:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 5mm;
+            height: calc(100% - 10mm);
+            width: 2px;
+            background: #dfe6e9;
+        }
+        
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1mm;
+        }
+        
+        .job-title {
+            font-weight: 600;
+            font-size: 11pt;
+            color: #2d3436;
+        }
+        
+        .company {
+            font-weight: 600;
+            color: #0984e3;
+        }
+        
+        .date {
+            color: #636e72;
+            font-size: 9pt;
+            background: #f5f6fa;
+            padding: 1mm 3mm;
+            border-radius: 3mm;
+        }
+        
+        .location {
+            font-style: italic;
+            color: #636e72;
+            font-size: 9pt;
+            margin-bottom: 2mm;
+            display: block;
+        }
+        
+        ul {
+            padding-left: 5mm;
+            margin: 2mm 0;
+            font-size: 10pt;
+        }
+        
+        li {
+            margin-bottom: 2mm;
+            position: relative;
+        }
+        
+        li:before {
+            content: "▹";
+            position: absolute;
+            left: -4mm;
+            color: #0984e3;
+        }
+        
+        /* Skills with progress indicators */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(70mm, 1fr));
+            gap: 3mm;
+        }
+        
+        .skill-category {
+            margin-bottom: 3mm;
+        }
+        
+        .skill-name {
+            display: block;
+            font-size: 9pt;
+            margin-bottom: 1mm;
+            color: #2d3436;
+        }
+        
+        .skill-bar {
+            height: 4px;
+            background: #dfe6e9;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: #0984e3;
+        }
+        
+        /* Two-column layout */
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8mm;
+        }
+        
+        /* Awards with icons */
+        .awards-list {
+            list-style-type: none;
+            padding-left: 0;
+            font-size: 10pt;
+        }
+        
+        .awards-list li {
+            margin-bottom: 3mm;
+            padding-left: 6mm;
+            position: relative;
+        }
+        
+        .awards-list li:before {
+            content: "★";
+            position: absolute;
+            left: 0;
+            color: #fdcb6e;
+        }
+        
+        /* Print adjustments */
+        @media print {
+            body {
+                padding: 15mm;
+                font-size: 10pt;
+            }
+            
+            .no-print {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <h1>DINESH KUMAR</h1>
+            <p class="title">Senior SAP Consultant</p>
+            <div class="contact-info">
+                <span>📞 +91-9560377011</span>
+                <span>✉️ prajapatidineshkumar01@gmail.com</span>
+                <span>🔗 linkedin.com/in/kumar-dinesh-it/</span>
+                <span>📍 Grater Noida, India</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="section">
+        <h2>PROFESSIONAL PROFILE</h2>
+        <p style="font-size: 10pt; margin: 0;">Results-driven SAP consultant with 13+ years of experience delivering innovative SAP solutions. Specialized in S/4HANA implementations, RAP development, and BTP integrations. Recognized for technical excellence and awarded for multiple successful project implementations across diverse industries.</p>
+    </div>
+    
+    <div class="section">
+        <h2>PROFESSIONAL EXPERIENCE</h2>
+        
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">SAP ABAP Consultant</span> @ 
+                    <span class="company">Swift Finance Services</span>
+                </div>
+                <div class="date">2024 - Present</div>
+            </div>
+            <span class="location">Noida, India</span>
+            <ul>
+                <li>Architected RAP-based APIs handling 50+ business scenarios in private cloud SAP S4 system</li>
+                <li>Developed custom entities in SAP RAP that improved processing efficiency by 30%</li>
+                <li>Implemented BTP RAP app reducing maintenance time by 25% through automation</li>
+                <li>Integrated SAP FICA objects into workflow screening process</li>
+            </ul>
+        </div>
+        
+        <div class="job">
+            <div class="job-header">
+                <div>
+                    <span class="job-title">SAP Principal Consultant</span> @ 
+                    <span class="company">Celebal Technologies</span>
+                </div>
+                <div class="date">2023 - 2024</div>
+            </div>
+            <ul>
+                <li>Led integration of SAP with Power Apps serving 200+ users across procurement processes</li>
+                <li>Designed Vendor Master integration reducing data entry errors by 40%</li>
+                <li>Implemented chatbot solution handling 500+ PR/PO requests monthly</li>
+                <li>Developed OData APIs supporting complex entity operations</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="two-column">
+        <div class="column">
+            <div class="section">
+                <h2>TECHNICAL EXPERTISE</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <span class="skill-name">SAP ABAP</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 95%"></div></div>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-name">SAP RAP</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 90%"></div></div>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-name">SAP BTP</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 85%"></div></div>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-name">SAP HANA</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 88%"></div></div>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-name">OData Services</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 92%"></div></div>
+                    </div>
+                    <div class="skill-category">
+                        <span class="skill-name">SAP CPI</span>
+                        <div class="skill-bar"><div class="skill-level" style="width: 80%"></div></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>EDUCATION</h2>
+                <div style="font-size: 10pt;">
+                    <div style="font-weight: 600; color: #2d3436;">Master of Business Administration</div>
+                    <div>Subharti University</div>
+                    <div style="color: #636e72;">2019 - 2021 | Merut</div>
+                    
+                    <div style="margin-top: 3mm; font-weight: 600; color: #2d3436;">Bachelor's Degree</div>
+                    <div>V.B.S Purvanchal University</div>
+                    <div style="color: #636e72;">2006 - 2009 | Jaunpur</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="column">
+            <div class="section">
+                <h2>CERTIFICATIONS</h2>
+                <ul style="font-size: 10pt;">
+                    <li><strong>SAP Certified Development Specialist</strong> - ABAP for SAP HANA 2.0</li>
+                    <li><strong>SAP Certified Associate</strong> - ABAP with SAP NetWeaver 7.40</li>
+                    <li><strong>SAP Certified Associate</strong> - SAP Fiori Application Developer</li>
+                    <li><strong>SAP BTP Certification</strong> - Integration Suite</li>
+                    <li><strong>PSM1 Certified</strong> - Professional Scrum Master</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>ACHIEVEMENTS</h2>
+                <ul class="awards-list">
+                    <li><strong>Vital Customer Delight Award</strong> - For exceptional SAP implementation</li>
+                    <li><strong>NEC OSCAR Award</strong> - Successful GST ISUZU Project</li>
+                    <li><strong>NEC RISING STAR</strong> - Annual performance recognition</li>
+                    <li><strong>Outstanding Performance Award</strong> - SAP implementation at HMSI</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h2>LANGUAGES</h2>
+                <div style="font-size: 10pt;">
+                    <div><strong>Hindi</strong> - Native proficiency</div>
+                    <div><strong>English</strong> - Professional proficiency</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="no-print" style="text-align: center; margin-top: 5mm; color: #7f8c8d; font-size: 8pt;">
+        Modern Resume Template | Save as PDF for perfect A4 formatting
+    </div>
+</body>
+</html>
