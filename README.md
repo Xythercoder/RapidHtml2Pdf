@@ -64,7 +64,7 @@ Customize options via `PDFOptions`:
 ## Development & Testing
 
 ```bash
-git clone https://github.com/Xyhercode/h2p.git
+git clone https://github.com/Xythercoder/RapidHtml2Pdf.git
 cd RapidHtml2Pdf
 pip install -e .
 pytest
